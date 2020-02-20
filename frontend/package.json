@@ -1,0 +1,16 @@
+{
+  "name": "seminar-week5-client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "lodash": "^4.17.11"
+  }
+}
