@@ -20,27 +20,37 @@ class ToDoList {
     if (!this.contains(item)) {
       this.items.push(item);
     } else {
-      throw "Duplicate item";
+      throw new Error('Duplicate item');
     }
   }
 
+  /**
+   * Checks if array contains item
+   * @param {string} item Todo list item
+   * @return {boolean} found
+   */
   contains(item) {
     return _.includes(this.items, item);
   }
 
+  /**
+   * Deletes an iem from the list
+   * @param {string} item Todo list item
+   * @throws Will throw an error when if item is not in the list
+   */
   delete(item) {
     if (this.contains(item)) {
       _.remove(this.items, function(curItem) {
         return curItem === item;
       });
     } else {
-      throw "Item not found";
+      throw new Error('Item not found');
     }
   }
 
   /**
    * Get the list from the object
-   * @returns {string[]} todo list
+   * @return {string[]} todo list
    */
   getList() {
     return this.items;
