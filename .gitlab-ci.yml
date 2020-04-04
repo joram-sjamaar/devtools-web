@@ -1,9 +1,13 @@
 image: "node:13-alpine"
 
 before_script:
- - cd ./backend
- - npm install
+  - cd ./backend
+  - npm install
 
 test:
- script:
-  - npm run test
+  script:
+    - npm run coverage
+  artifacts:
+    paths:
+      - ./coverage
+    expire_in: 1 week
