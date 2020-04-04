@@ -9,5 +9,5 @@ test:
     - npm run coverage
   artifacts:
     paths:
-      - ./coverage
+      - ./backend/coverage
     expire_in: 1 week
