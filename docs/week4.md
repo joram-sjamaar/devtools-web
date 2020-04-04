@@ -263,3 +263,48 @@ Server running on port 2000
 
 ## Exercise	5: Get your backend running in Gitlab CI
 
+Mijn CI gaat uit van NodeJS 13 (oftewel de laatste versie). Ik gebruik de alpine release omdat deze erg klein is, en de job zo sneller klaar is.
+
+Alle output heb ik als artifcats bij de job gezet. Zo wordt het volgende gegenereerd:
+ * Mocha HTML report
+ * Istanbul HTML report
+ * APIDoc
+ * JSDoc
+
+```YAML
+image: "node:13-alpine"
+
+before_script:
+  - cd ./backend
+  - npm install
+
+test:
+  script:
+    - npm run test:html
+  artifacts:
+    name: "$CI_COMMIT_REF_NAME-TEST"
+    paths:
+      - ./backend/reports
+    expire_in: 1 week
+
+coverage:
+  script:
+    - npm run coverage
+  artifacts:
+    name: "$CI_COMMIT_REF_NAME-COVERAGE"
+    paths:
+      - ./backend/coverage
+    expire_in: 1 week
+
+docs:
+  script:
+    - npm run jsdoc
+    - npm run apidoc
+  artifacts:
+    name: "$CI_COMMIT_REF_NAME-DOCS"
+    paths:
+      - ./backend/jsdoc
+      - ./backend/apidoc
+    expire_in: 1 week
+```
+
