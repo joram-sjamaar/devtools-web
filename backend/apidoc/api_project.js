@@ -1,0 +1,14 @@
+define({
+  "apidoc": "0.3.0",
+  "name": "seminar-week4-server",
+  "version": "1.0.0",
+  "description": "REST-API for the TODO-list application. Part of the course on Development Tools at Saxion University",
+  "sampleUrl": false,
+  "defaultVersion": "0.0.0",
+  "generator": {
+    "name": "apidoc",
+    "time": "2020-04-04T18:40:30.924Z",
+    "url": "http://apidocjs.com",
+    "version": "0.20.1"
+  }
+});

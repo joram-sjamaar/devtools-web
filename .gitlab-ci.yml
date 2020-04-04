@@ -1,0 +1,9 @@
+image: "node:13-alpine"
+
+before_script:
+ - cd ./backend
+ - npm install
+
+test:
+ script:
+  - npm run test
