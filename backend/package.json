@@ -8,14 +8,23 @@
     "watch": "nodemon index.js",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "jsdoc": "jsdoc server test -r -d jsdoc",
-    "apidoc": "apidoc -i server/ -o apidoc/",
     "test": "mocha",
-    "test:nyan": "mocha --reporter Nyan",
-    "test:html": "mocha --reporter mocha-simple-html-reporter --reporter-options output=reports/mocha_test_report.html",
-    "coverage": "nyc --reporter=html mocha"
+    "test:report": "mocha --reporter mocha-simple-html-reporter --reporter-options output=reports/mocha_test_report.html",
+    "test:coverage": "nyc mocha",
+    "test:coverage-html": "nyc --reporter=html mocha",
+    "jsdoc": "jsdoc server test -r -d jsdoc",
+    "apidoc": "apidoc -i server/ -o apidoc/"
   },
-  "author": "Evert Duipmans",
+  "contributors": [
+    {
+      "name": "Evert Duipmans"
+    },
+    {
+      "name": "Joram Sjamaar",
+      "email": "462398@student.saxion.nl",
+      "url": "https://joramsjamaar.nl"
+    }
+  ],
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.2",

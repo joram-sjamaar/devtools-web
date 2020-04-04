@@ -1,4 +1,4 @@
-// import './styles/appStyle.scss';
+import './styles/appStyle.scss';
 import {ToDoList} from './js/todo';
 
 // Create the todolist

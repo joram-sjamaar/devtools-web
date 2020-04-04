@@ -6,7 +6,7 @@ before_script:
 
 test:
   script:
-    - npm run test:html
+    - npm run test:report
   artifacts:
     name: "$CI_COMMIT_REF_NAME-TEST"
     paths:
@@ -15,7 +15,7 @@ test:
 
 coverage:
   script:
-    - npm run coverage
+    - npm run test:coverage-html
   artifacts:
     name: "$CI_COMMIT_REF_NAME-COVERAGE"
     paths:
