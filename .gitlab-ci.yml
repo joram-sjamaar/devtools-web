@@ -1,11 +1,5 @@
 image: "node:13-alpine"
 
-cache:
-  key: ${CI_COMMIT_REF_SLUG}
-  paths:
-  - ./frontend/.npm/
-  - ./backend/.npm/
-
 backend test:
   script:
     - cd ./backend
@@ -17,7 +11,7 @@ backend test:
     expire_in: 1 week
   only:
     changes:
-      - ./backend/*
+      - backend/*
   cache:
     key: ${CI_COMMIT_REF_SLUG}
     paths:
@@ -33,7 +27,7 @@ backend coverage:
     expire_in: 1 week
   only:
     changes:
-      - ./backend/*
+      - backend/*
   cache:
     key: ${CI_COMMIT_REF_SLUG}
     paths:
@@ -51,7 +45,7 @@ backend docs:
     expire_in: 1 week
   only:
     changes:
-      - ./backend/*
+      - backend/*
   cache:
     key: ${CI_COMMIT_REF_SLUG}
     paths:
@@ -69,7 +63,7 @@ frontend build:
     expire_in: 1 week
   only:
     changes:
-      - ./frontend/*
+      - frontend/*
   cache:
     key: ${CI_COMMIT_REF_SLUG}
     paths:
