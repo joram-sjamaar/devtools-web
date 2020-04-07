@@ -1,7 +1,12 @@
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const express = require('express');
 const TodoList = require('./todo.js');
 const app = express();
+
+// Im gonna start using CORS because I kept getting blocked resource errors.
+app.use(cors());
+app.options('*', cors());
 
 // Setup the body parser
 app.use(bodyParser.json());

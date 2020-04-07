@@ -50,4 +50,9 @@ module.exports = {
       },
     ],
   },
+  devServer: {
+    compress: true,
+    writeToDisk: true,
+    port: 8080
+  }
 }

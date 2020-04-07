@@ -13,8 +13,36 @@ class ToDoList {
   constructor(renderElement) {
     this.renderElement = renderElement;
 
-    // List for the todo items
+    // Empty list while we wait for AJAX to load
     this.items = [];
+    let result;
+
+    $.ajax('http://localhost:3000/api/todo', {
+      async: false,
+      beforeSend: function() {
+        $( 'input' ).attr('disabled', true);
+        $( 'button' ).attr('disabled', true);
+      },
+      complete: function() {
+        $( 'input' ).attr('disabled', false);
+        $( 'button' ).attr('disabled', false);
+      },
+    })
+        .done(function(data) {
+          console.log('Fetched /api/todo. Results: ', data);
+          result = data;
+        })
+        .fail(function(error) {
+          console.error('AJAX error: ', error);
+        });
+
+    if (this.item != result) {
+      console.log('Setting items array to: ', result);
+      console.log('Rendering...');
+
+      this.items = result;
+      this.render();
+    }
   }
 
   /**
@@ -23,6 +51,12 @@ class ToDoList {
    */
   addItem(item) {
     this.items.push(item);
+
+    $.ajax('http://localhost:3000/api/todo/' + item, {
+      method: 'POST',
+    }).done(function() {
+      console.log('AJAX Complete. Added item: ', item);
+    });
 
     // Re-render
     this.render();
@@ -76,6 +110,12 @@ class ToDoList {
     // We use Lodash here for array operations
     _.remove(this.items, function(curItem) {
       return curItem === item;
+    });
+
+    $.ajax('http://localhost:3000/api/todo/' + item, {
+      method: 'DELETE',
+    }).done(function() {
+      console.log('AJAX Complete. Deleted item: ', item);
     });
 
     // Re-render
