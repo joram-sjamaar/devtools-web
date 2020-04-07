@@ -82,6 +82,7 @@ frontend build:
     - ./frontend/.npm/
 
 frontend test:
+  image: 'cypress/base:10'
   stage: test
   script:
     - cd ./frontend
