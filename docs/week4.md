@@ -2,7 +2,20 @@
 Backend
 
 ## Inhoudsopgave
-T.B.A
+- [Development Tools - Web](#development-tools---web)
+  * [Inhoudsopgave](#inhoudsopgave)
+  * [Exercise 1: Linting](#exercise-1--linting)
+    + [Problems](#problems)
+    + [What was fixed?](#what-was-fixed-)
+    + [What was not fixed?](#what-was-not-fixed-)
+  * [Exercise 2: JSDoc](#exercise-2--jsdoc)
+  * [Exercise 3: Testing the code](#exercise-3--testing-the-code)
+    + [Can you also run the tests without running the server? Why?](#can-you-also-run-the-tests-without-running-the-server--why-)
+    + [Check out different types of reporters for mocha (https://mochajs.org/#reporters) and test with them.](#check-out-different-types-of-reporters-for-mocha--https---mochajsorg--reporters--and-test-with-them)
+    + [Write additional tests to achieve 100% code coverage. Make a note of these added tests in your report.](#write-additional-tests-to-achieve-100--code-coverage-make-a-note-of-these-added-tests-in-your-report)
+  * [Exercise 4: Making development easier with Nodemon](#exercise-4--making-development-easier-with-nodemon)
+  * [Exercise 5: Get your backend running in Gitlab CI](#exercise-5--get-your-backend-running-in-gitlab-ci)
+
 
 ## Exercise	1: Linting
 

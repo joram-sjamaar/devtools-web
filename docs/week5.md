@@ -2,9 +2,32 @@
 Frontend
 
 ## Inhoudsopgave
-T.B.A
+- [Development Tools - Web](#development-tools---web)
+  * [Inhoudsopgave](#inhoudsopgave)
+  * [Exercise 1:Transpiling ES6 to ES5 with babel](#exercise-1-transpiling-es6-to-es5-with-babel)
+    + [What does the transpiled file look like?](#what-does-the-transpiled-file-look-like-)
+    + [What happended with the class (todo.js)?](#what-happended-with-the-class--todojs--)
+    + [In your final report, make a note of at least 3 changes you have spotted.](#in-your-final-report--make-a-note-of-at-least-3-changes-you-have-spotted)
+  * [Exercise 2: Transpiling SASS to CSS](#exercise-2--transpiling-sass-to-css)
+    + [Wat heb ik gekozen als kleur?](#wat-heb-ik-gekozen-als-kleur-)
+  * [Exercise 3: Webpack](#exercise-3--webpack)
+    + [Entry, Output, Loaders & Plugins](#entry--output--loaders---plugins)
+    + [What is the difference in output for production mode and development mode?](#what-is-the-difference-in-output-for-production-mode-and-development-mode-)
+      - [Production](#production)
+      - [Development](#development)
+      - [PS.](#ps)
+    + [Write down in your report what happens to images](#write-down-in-your-report-what-happens-to-images)
+    + [Is the .babelrc file still necessary?](#is-the-babelrc-file-still-necessary-)
+    + [What happened to the node_modules (such as jQuery and Lodash)? Should you also add them to the bundle?](#what-happened-to-the-node-modules--such-as-jquery-and-lodash---should-you-also-add-them-to-the-bundle-)
+    + [Write a brief description of the major changes between the development and production builds of your product](#write-a-brief-description-of-the-major-changes-between-the-development-and-production-builds-of-your-product)
+  * [Exercise 4: Webpack-dev-server](#exercise-4--webpack-dev-server)
+    + [Make a note in your report on how you accomplished this](#make-a-note-in-your-report-on-how-you-accomplished-this)
+  * [Exercise 5: Linting (repeat from last week)](#exercise-5--linting--repeat-from-last-week-)
+  * [Exercise 6: Test with cypress.io](#exercise-6--test-with-cypressio)
+  * [Exercise 7: Getting your web frontend to work with Gitlab CI](#exercise-7--getting-your-web-frontend-to-work-with-gitlab-ci)
+- [Exercise 8: Final Touches](#exercise-8--final-touches)
 
-## Transpiling ES6 to ES5 with babel
+## Exercise	1:Transpiling ES6 to ES5 with babel
 
 ### What does the transpiled file look like?
 Als een rotzooi. Maar dat is te verwachten. Alle bestanden zijn samengevoegd tot één bestand, en dat is natuurlijk wat onoverzichtelijker.
