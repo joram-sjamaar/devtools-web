@@ -1,34 +1,76 @@
 image: "node:13-alpine"
 
-before_script:
-  - cd ./backend
-  - npm install
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+  - ./frontend/.npm/
+  - ./backend/.npm/
 
-test:
+backend test:
   script:
+    - cd ./backend
+    - npm ci --cache .npm --prefer-offline
     - npm run test:report
   artifacts:
-    name: "$CI_COMMIT_REF_NAME-TEST"
     paths:
       - ./backend/reports
     expire_in: 1 week
+  only:
+    changes:
+      - ./backend/*
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+    - ./backend/.npm/
 
-coverage:
+backend coverage:
   script:
+    - cd ./backend
     - npm run test:coverage-html
   artifacts:
-    name: "$CI_COMMIT_REF_NAME-COVERAGE"
     paths:
       - ./backend/coverage
     expire_in: 1 week
+  only:
+    changes:
+      - ./backend/*
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+    - ./backend/.npm/
 
-docs:
+backend docs:
   script:
+    - cd ./backend
     - npm run jsdoc
     - npm run apidoc
   artifacts:
-    name: "$CI_COMMIT_REF_NAME-DOCS"
     paths:
       - ./backend/jsdoc
       - ./backend/apidoc
     expire_in: 1 week
+  only:
+    changes:
+      - ./backend/*
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+    - ./backend/.npm/
+
+frontend build:
+  script:
+    - cd ./frontend
+    - npm ci --cache .npm --prefer-offline
+    - npm run build
+  artifacts:
+    paths:
+      - ./frontend/dist
+      - ./frontend/index.html
+    expire_in: 1 week
+  only:
+    changes:
+      - ./frontend/*
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+    - ./frontend/.npm/
