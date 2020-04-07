@@ -45,6 +45,13 @@ $color__white = #fff;
 
 Kortom, ik ben een voorstander van SCSS :)
 
+### Wat heb ik gekozen als kleur?
+Rood. Licht en donker rood.
+
+```scss
+$themeColor-Light: #FFCDD2;
+$themeColor-Dark:  #D32F2F;
+```
 
 ## Exercise 3: Webpack
 
