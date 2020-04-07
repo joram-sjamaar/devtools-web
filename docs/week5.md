@@ -67,3 +67,57 @@ Development modus spreekt voor zich. Dit laat de debug-modules zitten en zorgt v
 
 #### PS.
 De opdrachten geven nogal wat tegenstrijdige informatie. 'Add build and build:**prod** entries'. Vervolgens staat in de tabel 'build en build:**dev**'....
+
+### Write down in your report what happens to images
+Afbeeldingen komen met een gehashde waarde in de `dist` folder. Ook komt deze nu voor in de `app.bundle.js`
+
+### Is the .babelrc file still necessary? 
+Nee. Het was in het begin al niet nodig, en nu al helemaal niet. Je kunt de babel opties configureren via het webpack configuratie bestand.
+
+### What happened to the node_modules (such as jQuery and Lodash)? Should you also add them to the bundle?
+jQuery en lodash staan in een import. Hier houd webpack rekening mee. In een development build zullen ze geimporteerd worden. Bij een productie build zal webpack kijken welke functies nodig zijn van die imports en alleen die functies inladen. Er is dus geen verdere configuratie vereist.
+
+### Write a brief description of the major changes between the development and production builds of your product
+
+Wat me gelijk opvalt is dat de groote van `app.bundle.js` van 882Kb naar 164Kb zakt. Dat is een verschil van 718Kb! Als je dit bestand opent dan zie je dat het bestand geminified is (of geuglified, hoe je het wilt noemen.). Er staat alleen nog een comment in van de jQuery library en de rest is praktisch onleesbaar. De afbeelding blijft onaagetast. Al kun je file-loader zo configureren dat een development build een andere vorm van afbeeldingen opleverd (geen hash naam, etc.)
+
+## Exercise 4: Webpack-dev-server
+
+### Make a note in your report on how you accomplished this
+
+Eerst heb ik webpack-dev-server geinstalleerd.
+```
+npm install webpack-dev-server --save-dev
+```
+
+Daarna heb ik een start entry gemaakt.
+```
+"scripts": {
+    "start": "webpack-dev-server"
+}
+```
+
+Volgens de documentatie staat de server al geconfigureerd in de watch modus ([Bron](https://webpack.js.org/configuration/watch/))
+
+>In webpack-dev-server and webpack-dev-middleware watch mode is enabled by default.
+
+Zodra ik een verandering toe pas in `themeColors.scss` zie ik dat de devserver dit oppakt en opnieuw compileert.
+```
+Version: webpack 4.42.1
+Time: 28ms
+Built at: 04/07/2020 13:59:11
+        Asset      Size  Chunks             Chunk Names
+app.bundle.js  1.21 MiB    main  [emitted]  main
+ + 1 hidden asset
+Entrypoint main = app.bundle.js
+[./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles/appStyle.scss] 899 bytes {main} [built]
+    + 41 hidden modules
+```
+
+## Exercise	5: Linting (repeat from last week)
+
+All done! Ik heb weer de lint configuratie van Google gebruikt. Één lijn heb ik moeten commenten voor eslint. De rest is gefixt.
+
+## Exercise 6: Test with cypress.io
+
+Alle tests zijn headless te gebruiken en zouden alle functionaliteit moeten testen

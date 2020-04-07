@@ -5,10 +5,10 @@ import _ from 'lodash';
  * Component for keeping track of TODO items
  */
 class ToDoList {
-  
   /**
    * Create the component
-   * @param {number} renderElement Element to render the ToDoList in (DOM object ID)
+   * @param {number} renderElement Element to render the
+   *                               ToDoList in (DOM object ID)
    */
   constructor(renderElement) {
     this.renderElement = renderElement;
@@ -42,7 +42,7 @@ class ToDoList {
    */
   render() {
     // Find parent element and construct the HTML
-    let parent = $('#'+this.renderElement);
+    const parent = $('#'+this.renderElement);
     $(parent).html('');
 
     let result = '';
@@ -58,19 +58,19 @@ class ToDoList {
 
     // We need to access stuff from this-object in the callback!
     // Therefore store a referene to the this object
-    let classReference = this;
+    const classReference = this;
 
     // Add click action to the delete button
     $('#' + this.renderElement + ' i.delete').unbind('click');
     $('#' + this.renderElement + ' i.delete').click(function(e) {
       e.preventDefault();
-      classReference.delete($(this).parent().parent().find('span').html());
+      classReference.delete($(this).parent().parent().find('span').html()); // eslint-disable-line
     });
   }
 
   /**
    * Deletes an element from the ToDoList
-   * @param item {String} Element to remove from the ToDoList
+   * @param {String} item Element to remove from the ToDoList
    */
   delete(item) {
     // We use Lodash here for array operations

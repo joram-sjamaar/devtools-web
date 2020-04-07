@@ -9,6 +9,16 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: {
+            loader: 'file-loader',
+            options: {
+              outputPath: 'images',
+              publicPath: 'dist/images',
+            },
+        }
+      },
+      {
         test: /\.s[ac]ss$/i,
         use: [
           // Creates `style` nodes from JS strings
@@ -18,6 +28,25 @@ module.exports = {
           // Compiles Sass to CSS
           'sass-loader',
         ]
+      },
+      {
+        enforce: 'pre', // Enforceert dat ESLint voor alle andere dingen komt.
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader',
+        options: {
+          fix: true,
+        }
+      },
+      {
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
       },
     ],
   },
