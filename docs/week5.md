@@ -115,9 +115,34 @@ Entrypoint main = app.bundle.js
 ```
 
 ## Exercise	5: Linting (repeat from last week)
-
 All done! Ik heb weer de lint configuratie van Google gebruikt. Één lijn heb ik moeten commenten voor eslint. De rest is gefixt.
 
 ## Exercise 6: Test with cypress.io
-
 Alle tests zijn headless te gebruiken en zouden alle functionaliteit moeten testen
+
+## Exercise	7: Getting your web frontend to work with Gitlab CI
+Frontend triggert:
+ * frontend test *(cache)*
+    * artifacts:
+        * cypress test videos
+        * cypress screenshots
+ * frontend build *(cache)*
+    * artifacts:
+        * index.html
+        * /dist folder
+
+Backend triggert:
+ * backend test *(cache)*
+    * artifacts:
+        * Mocha test report
+ * backend coverage *(cache)*
+    * artifacts:
+        * /coverage folder
+ * backend docs *(cache)*
+    * artifacts:
+        * /apidoc folder
+        * /JSDoc folder
+
+# Exercise 8: Final Touches
+
+All done!
